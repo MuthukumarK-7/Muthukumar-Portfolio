@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio of Muthukumar K, MCA student and Java and React.js developer.">
+<title>Muthukumar K Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: left-aligned single column. Large name header, then rows with a label column on the left and content on the right. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #14181f;
+  --muted: #566070;
+  --line: #dde1e8;
+  --accent: #1d4ed8;
+  --accent-soft: #e4ebfd;
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1217;
+    --surface: #161b22;
+    --fg: #e8ecf2;
+    --muted: #9aa5b4;
+    --line: #262d38;
+    --accent: #7ea2ff;
+    --accent-soft: #1a2540;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1217;
+  --surface: #161b22;
+  --fg: #e8ecf2;
+  --muted: #9aa5b4;
+  --line: #262d38;
+  --accent: #7ea2ff;
+  --accent-soft: #1a2540;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-block: 40px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+header { padding-bottom: 36px; border-bottom: 1px solid var(--line); }
+.role {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 14px;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.4rem, 8vw, 4.2rem); line-height: 1.02; letter-spacing: -0.02em;
+  margin: 0 0 18px; text-wrap: balance;
+}
+.intro { max-width: 60ch; color: var(--muted); font-size: 1.06rem; margin: 0 0 24px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.links a {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--fg); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+}
+.links a:hover { border-color: var(--accent); color: var(--accent); }
+.links svg { width: 16px; height: 16px; flex: none; }
+
+section { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 12px 32px; padding: 32px 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+h2 {
+  font-family: var(--font-display); font-weight: 600; font-size: 13px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 4px 0 0;
+}
+.body { min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+p { margin: 0; }
+.meta { color: var(--muted); font-size: 14px; }
+
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+.project p { color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+.tags li { font-size: 12.5px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.project .go { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 500; }
+
+.row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; }
+.skills { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 8px 16px; margin: 0; }
+.skills dt { font-weight: 600; }
+.skills dd { margin: 0; color: var(--muted); }
+ul.plain { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+ul.plain li::marker { color: var(--accent); }
+.contact-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.contact-line code { font-family: var(--font-body); font-weight: 500; user-select: all; }
+button.copy {
+  font: inherit; font-size: 13px; font-weight: 500; cursor: pointer;
+  padding: 4px 10px; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--fg);
+}
+button.copy:hover { border-color: var(--accent); color: var(--accent); }
+footer { padding-top: 24px; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 640px) {
+  body { padding-block: 28px 40px; }
+  section { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 26px 0; }
+  .skills { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .skills dd { margin-bottom: 8px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .links a, button.copy { transition: border-color .15s, color .15s; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <p class="role">MCA student &middot; Java &amp; React.js developer</p>
+    <h1>Muthukumar K</h1>
+    <p class="intro">I am a Master of Computer Application student at SASTRA Deemed to be University, Thanjavur. I build web applications in Java and React.js, and I am learning full-stack development by writing clean code and shipping real projects.</p>
+    <div class="links">
+      <a href="https://github.com/MuthukumarK-7" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/muthukumar007" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://leetcode.com/u/Muthukumar-K/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        LeetCode
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="body">
+      <article class="project">
+        <h3>Offensive Meme Detection Using Deep Learning</h3>
+        <p>A deep learning model that classifies memes as offensive or non-offensive by combining image features with text features.</p>
+        <ul class="tags"><li>Deep learning</li><li>Image + text features</li><li>Classification</li></ul>
+        <a class="go" href="https://github.com/MuthukumarK-7/offensive-meme-detection" target="_blank" rel="noopener">View repository on GitHub &rarr;</a>
+      </article>
+      <article class="project">
+        <h3>Faculty Leave Management Dashboard</h3>
+        <p>A dashboard for managing faculty leave. It covers leave requests, substitute assignment, record management and email notifications.</p>
+        <ul class="tags"><li>Java</li><li>JSP</li><li>Oracle</li></ul>
+      </article>
+      <article class="project">
+        <h3>Dashboard Development</h3>
+        <p>React.js components developed and integrated into a dashboard during a one-month frontend internship.</p>
+        <ul class="tags"><li>React.js</li><li>JavaScript</li><li>HTML &amp; CSS</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="body">
+      <div>
+        <div class="row"><h3>Frontend Development Intern (React.js)</h3><span class="meta">Jun 2025 &ndash; Jul 2025</span></div>
+        <p class="meta">YAKKAY Technologies Pvt. Ltd., Chennai</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="body">
+      <dl class="skills">
+        <dt>Programming</dt><dd>Core Java (Java 8), Python</dd>
+        <dt>Frontend</dt><dd>HTML, CSS, JavaScript, React.js</dd>
+        <dt>Database</dt><dd>SQL</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="body">
+      <div>
+        <div class="row"><h3>Master of Computer Application (MCA)</h3><span class="meta">2025 &ndash; Present</span></div>
+        <p class="meta">SASTRA Deemed to be University, Thanjavur &middot; CGPA 8.6522</p>
+      </div>
+      <div>
+        <div class="row"><h3>Bachelor of Computer Applications (BCA)</h3><span class="meta">2022 &ndash; 2025</span></div>
+        <p class="meta">SASTRA Deemed to be University, Kumbakonam &middot; CGPA 8.2745</p>
+      </div>
+      <div>
+        <div class="row"><h3>Higher Secondary Certificate (HSC)</h3><span class="meta">2021 &ndash; 2022</span></div>
+        <p class="meta">Rice City Matric Higher Secondary School, Aduthurai &middot; 78.16%</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="body">
+      <ul class="plain">
+        <li><strong>NPTEL &ndash; Introduction to Large Language Models (LLMs):</strong> Elite Certificate (67%), Jan&ndash;Apr 2026</li>
+        <li><strong>LeetCode:</strong> 100+ problems solved &middot; <a href="https://leetcode.com/u/Muthukumar-K/" target="_blank" rel="noopener">profile</a></li>
+        <li><strong>Core Java programming:</strong> Coursera</li>
+        <li><strong>Typewriting proficiency:</strong> First Class with Distinction</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Activities</h2>
+    <div class="body">
+      <ul class="plain">
+        <li><strong>Android Studio Workshop:</strong> one-day workshop on Android development fundamentals</li>
+        <li><strong>CM Trophy Chess Tournament:</strong> participated, applying problem-solving and analytical thinking under competitive conditions</li>
+      </ul>
+      <p class="meta">Interests: chess, competitive programming, exploring new technologies. Languages: English, Tamil.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="body">
+      <div class="contact-line">
+        <span class="meta">Email</span>
+        <code id="email-text">mr.muthukumar07@gmail.com</code>
+        <button class="copy" id="copy-email" type="button" data-target="email-text">Copy</button>
+      </div>
+      <div class="contact-line">
+        <span class="meta">Phone</span>
+        <code id="phone-text">+91 9025856038</code>
+        <button class="copy" id="copy-phone" type="button" data-target="phone-text">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Muthukumar K</footer>
+</div>
+
+<script>
+document.querySelectorAll("button.copy").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var el = document.getElementById(btn.getAttribute("data-target"));
+    var text = el.textContent;
+    function done() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1500); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = "Selected";
+      setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
